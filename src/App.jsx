@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 
 //pasing props functional component
 function Hello({name}) {
@@ -15,18 +15,28 @@ function App() {
       <Hello name="KRISH" />
     </div>
   )
-}
+} */
 
 
 // class component
-/* 
+
 import { Component } from "react"
+
+class Hello extends Component {
+  render() {
+    const { name } = this.props;
+    return <div>Hello {name}!</div>
+  }
+}
+
 class App extends Component {
   render() { 
     return (
-      <div>Hello World</div>
+      <div>
+        <Hello name='Priyanka' />
+      </div>
     )
   }
-} */
+} 
 
 export default App;
