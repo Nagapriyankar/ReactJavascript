@@ -30,5 +30,5 @@ const notes = [
     },
 ];
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App ns={ notes } />)
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)
 

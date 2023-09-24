@@ -1,45 +1,23 @@
-import React from 'react'
-import Note from  './components/Note'
+//import React from 'react'
 
-function App(props) {
-  console.log(props.ns)
-  const { ns } = props
-  const itemList = []
-
-  /* ns.forEach((note) => { 
-    itemList.push(<Note key={note.id} note={note} />)
-  }) */
-
-  const addNote = (e) => {
-    e.preventDefault()
-    console.log('button clicked')
-    console.log(e.target.elements.note.value)
-  }
-
-
+//functional component
+/* function App() {
   return (
-    <div>
-      <h1>Notes</h1>
-      <ul>
-        {
-          ns.map((note) => { 
-            return <Note key={note.id} note={note} />
-          })
-          //itemList
-        }
-      </ul>
-
-      <form onSubmit={addNote}>
-        <input name='note'/>
-        <button type='submit'>Save note</button>
-      </form>
-
-      <form onSubmit={addNote}>
-        <input name='note' />
-        <button onClick={addNote}>Save note</button>
-      </form>
-    </div>
+    <div>Hello World</div>
   )
 }
 
-export default App
+export default App */
+
+// class component
+
+import { Component } from "react"
+class App extends Component {
+  render() { 
+    return (
+      <div>Hello World</div>
+    )
+  }
+}
+
+export default App;
