@@ -1,16 +1,25 @@
-//import React from 'react'
+import React from 'react'
 
-//functional component
-/* function App() {
+//pasing props functional component
+function Hello({name}) {
   return (
-    <div>Hello World</div>
+    <div>
+      Hello, {name}
+    </div>
   )
 }
 
-export default App */
+function App() {
+  return (
+    <div>
+      <Hello name="KRISH" />
+    </div>
+  )
+}
+
 
 // class component
-
+/* 
 import { Component } from "react"
 class App extends Component {
   render() { 
@@ -18,6 +27,6 @@ class App extends Component {
       <div>Hello World</div>
     )
   }
-}
+} */
 
 export default App;
