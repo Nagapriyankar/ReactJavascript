@@ -1,35 +1,37 @@
-// class component
+/*
+  Hooks: 
+    - any function that starts with "use" is called a hook.
+    - they are special functions that are only available while React is rendering
+  
+  To create a counter, where the value is increased as a function of time or at the click of a button.
+*/
+import React, { useState } from 'react';
 
-import { Component } from "react"
+function App() {
+  const [counter, setCounter] = useState(0);
 
-//stateful components
-class App extends Component {
-  constructor(props) { 
-    super(props); //to call parent class constructor
-
-    //define the state
-    this.state = {
-      count:0,
-    }
+  const handlePlusClick = () => {
+    // console.log('button clicked');
+    setCounter(counter + 1);
   }
 
-  increment = () => { 
-    //update the state (data) of the count
-    this.setState(
-      {
-        count: this.state.count+1,
-      }
-    )
+  const handleZeroClick = () => {
+    setCounter(0);
+  }
+  const handleMinusClick = () => {
+    setCounter(counter - 1);
   }
 
-  render() { 
-    return (
-      <div>
-        <p>Count: {this.state.count}</p>
-        <button onClick={ this.increment }>INCREMENT</button>
-      </div>
-    )
-  }
-} 
+  console.log('rendering...', counter);
+
+  return (
+    <div>
+      <div>{counter}</div>
+      <button onClick={handlePlusClick}>plus</button>
+      <button onClick={handleZeroClick}>zero</button>
+      <button onClick={handleMinusClick}>Minus</button>
+    </div>
+  )
+}
 
 export default App;
