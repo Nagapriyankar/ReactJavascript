@@ -1,37 +1,21 @@
-/*
-  Hooks: 
-    - any function that starts with "use" is called a hook.
-    - they are special functions that are only available while React is rendering
-  
-  To create a counter, where the value is increased as a function of time or at the click of a button.
-*/
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
+import ChildComponent from './components/ChildComponent';
+
+// create a context
+const AMessageContext = createContext();
 
 function App() {
-  const [counter, setCounter] = useState(0);
 
-  const handlePlusClick = () => {
-    // console.log('button clicked');
-    setCounter(counter + 1);
-  }
-
-  const handleZeroClick = () => {
-    setCounter(0);
-  }
-  const handleMinusClick = () => {
-    setCounter(counter - 1);
-  }
-
-  console.log('rendering...', counter);
+  const [message, setMessage] = useState('Hello from App');
 
   return (
     <div>
-      <div>{counter}</div>
-      <button onClick={handlePlusClick}>plus</button>
-      <button onClick={handleZeroClick}>zero</button>
-      <button onClick={handleMinusClick}>Minus</button>
+      <h1>Parent Component</h1>
+      <AMessageContext.Provider value={ [message, setMessage] }>
+        <ChildComponent />
+      </AMessageContext.Provider>
     </div>
   )
 }
 
-export default App;
+export { App as default, AMessageContext };
