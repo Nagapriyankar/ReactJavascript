@@ -1,21 +1,20 @@
-import React, { createContext, useState } from 'react';
-import ChildComponent from './components/ChildComponent';
+  import React, { createContext, useState } from 'react';
+import Profile from './components/Profile';
+  // create a context
+  const NameContext = createContext();
 
-// create a context
-const AMessageContext = createContext();
+  function App() {
 
-function App() {
+    const [profileName, setProfileName] = useState('');
 
-  const [message, setMessage] = useState('Hello from App');
+    return (
+      <div>
+        <h1>APP COMPONENT</h1>
+        <NameContext.Provider value={{ profileName, setProfileName }}>
+          <Profile />
+        </NameContext.Provider>
+      </div>
+    )
+  }
 
-  return (
-    <div>
-      <h1>Parent Component</h1>
-      <AMessageContext.Provider value={ [message, setMessage] }>
-        <ChildComponent />
-      </AMessageContext.Provider>
-    </div>
-  )
-}
-
-export { App as default, AMessageContext };
+export { App as default, NameContext };
